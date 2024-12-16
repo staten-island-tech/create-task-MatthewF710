@@ -1,24 +1,29 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
-
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
-
-setupCounter(document.querySelector('#counter'))
+import "../CSS/style.css";
+import { DOMSelectors } from "./DOMSelectors.js";
+let positions = [];
+function cardPositions(rounds) {
+  positions.splice(0, positions.length());
+  let topbottom = "";
+  let leftright = "";
+  for (i = 0; i <= rounds; i++) {
+    if (Math.round(Math.random()) == 1) {
+      topbottom = "top";
+    } else {
+      topbottom = "bottom";
+    }
+    let randomPositionY = Math.ceil(Math.random() * 50);
+    if (Math.round(Math.random()) == 1) {
+      leftright = "left";
+    } else {
+      leftright = "right";
+    }
+    let randomPositionX = Math.ceil(Math.random() * 50);
+    if (i > 0) {
+      for (i = 0; i >= positions.length; i++) {
+        if (randomPositionX - smth) {
+          //redefine X
+        }
+      }
+    }
+  }
+}
