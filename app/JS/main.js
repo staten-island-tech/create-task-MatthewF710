@@ -3,25 +3,30 @@ import { DOMSelectors } from "./DOMSelectors.js";
 let positions = [];
 function cardPositions(rounds) {
   positions.splice(0, positions.length());
-  let topbottom = "";
-  let leftright = "";
   for (i = 0; i <= rounds; i++) {
     if (Math.round(Math.random()) == 1) {
-      topbottom = "top";
+      let topbottom = "top";
     } else {
-      topbottom = "bottom";
+      let topbottom = "bottom";
     }
-    let randomPositionY = Math.ceil(Math.random() * 50);
     if (Math.round(Math.random()) == 1) {
-      leftright = "left";
+      let leftright = "left";
     } else {
-      leftright = "right";
+      let leftright = "right";
     }
     let randomPositionX = Math.ceil(Math.random() * 50);
     if (i > 0) {
-      for (i = 0; i >= positions.length; i++) {
-        if (randomPositionX - smth) {
-          //redefine X
+      for (i = 0; i >= rounds - 1; i++) {
+        if (randomPositionX == positions[i]) {
+          let randomPositionX = Math.ceil(Math.random() * 50);
+        }
+      }
+    }
+    let randomPositionY = Math.ceil(Math.random() * 50);
+    if (i > 0) {
+      for (i = 0; i >= rounds - 1; i++) {
+        if (randomPositionY == positions[i]) {
+          let randomPositionY = Math.ceil(Math.random() * 50);
         }
       }
     }
