@@ -5,7 +5,7 @@ function cardPositions(rounds) {
   positions.splice(0, positions.length());
   for (i = 0; i <= rounds; i++) {
     if (Math.round(Math.random()) == 1) {
-      let topbottom = "top";
+      const topbottom = "top";
     } else {
       let topbottom = "bottom";
     }
@@ -17,7 +17,7 @@ function cardPositions(rounds) {
     let randomPositionX = Math.ceil(Math.random() * 50);
     if (i > 0) {
       for (i = 0; i >= rounds - 1; i++) {
-        if (randomPositionX == positions[i]) {
+        if (Math.abs(randomPositionY - positions[i]) <= 2) {
           let randomPositionX = Math.ceil(Math.random() * 50);
         }
       }
@@ -25,10 +25,24 @@ function cardPositions(rounds) {
     let randomPositionY = Math.ceil(Math.random() * 50);
     if (i > 0) {
       for (i = 0; i >= rounds - 1; i++) {
-        if (randomPositionY == positions[i]) {
+        if (Math.abs(randomPositionY - positions[i]) <= 2) {
           let randomPositionY = Math.ceil(Math.random() * 50);
         }
       }
     }
+    positions.push({
+      topbottom: topbottom,
+      leftright: leftright,
+      distanceX: randomPositionX,
+      distanceY: randomPositionY,
+    });
   }
+}
+function buttonInserter() {
+  positions.forEach((card) => {
+    DOMSelectors.container.insertAdjacentHTML(
+      "beforeend",
+      `<div id="w-[2%] h-[1.5%] absoute ${card.topbottom}-${card.distanceY} ${card.leftright}-${card.distanceX}">${i}</div>`
+    );
+  });
 }
