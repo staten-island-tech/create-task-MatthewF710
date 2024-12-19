@@ -3,9 +3,11 @@ import { DOMSelectors } from "./DOMSelectors.js";
 let positions = [];
 function cardPositions(rounds) {
   positions.splice(0, positions.length());
+  let topbottom = "";
+  let leftright = "";
   for (i = 0; i <= rounds; i++) {
     if (Math.round(Math.random()) == 1) {
-      const topbottom = "top";
+      let topbottom = "top";
     } else {
       let topbottom = "bottom";
     }
@@ -42,7 +44,15 @@ function buttonInserter() {
   positions.forEach((card) => {
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div id="w-[2%] h-[1.5%] absoute ${card.topbottom}-${card.distanceY} ${card.leftright}-${card.distanceX}">${i}</div>`
+      `<div class="w-[2%] h-[1.5%] absoute ${card.topbottom}-${
+        card.distanceY - 2
+      } ${card.leftright}-${card.distanceX}" id="button-${i}">${i}</div>`
     );
   });
+}
+function buttonChecker() {
+  for (i = 0; i <= positions.length(); i++) {
+    let currentbutton = document.querySelector(`#button-${i}`);
+    currentbutton.addEventListener("clicked", function () {});
+  }
 }
