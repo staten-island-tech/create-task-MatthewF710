@@ -3,7 +3,6 @@ module.exports = {
   content: [
     "./index.html",
     "./JS/main.js",
-    "./JS/**/*.js",
     "./CSS/**/*.css",
     "./public/**/*.html",
   ],

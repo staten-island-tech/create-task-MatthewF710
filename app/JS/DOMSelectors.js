@@ -1,4 +1,4 @@
-const DOMSelectors = {fff
+const DOMSelectors = {
   container: document.querySelector(".div"),
 };
 export { DOMSelectors };
