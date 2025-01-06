@@ -51,11 +51,14 @@ function buttonInserter() {
   });
 }
 function gamelogic() {
-  cardPositions();
-  buttonInserter();
-  for (i = 0; i <= positions.length(); i++) {
-    let currentbutton = document.querySelector(`#button-${i}`);
-    currentbutton.addEventListener("clicked", function () {});
+  x = true;
+  while (x == true) {
+    cardPositions();
+    buttonInserter();
+    for (i = 0; i <= positions.length(); i++) {
+      let currentbutton = document.querySelector(`#button-${i}`);
+      currentbutton.addEventListener("clicked", function () {});
+    }
+    positions = [];
   }
-  positions = [];
 }

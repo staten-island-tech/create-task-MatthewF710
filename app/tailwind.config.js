@@ -2,9 +2,10 @@
 module.exports = {
   content: [
     "./index.html",
+    "./JS/main.js",
     "./JS/**/*.js",
     "./CSS/**/*.css",
-    "./public/**/*.html", //had to fix content cause it was wrong
+    "./public/**/*.html",
   ],
   theme: {
     screens: {
