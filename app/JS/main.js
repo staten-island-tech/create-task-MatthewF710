@@ -53,14 +53,16 @@ function buttonInserter() {
 }
 function gamelogic() {
   let x = true;
-  // while (x == true) {
-  cardPositions(1);
-  buttonInserter();
-  // for (let i = 0; i <= positions.length; i++) {
-  // let currentbutton = document.querySelector(`#button-${i}`);
-  // currentbutton.addEventListener("clicked", function () {});
-  // }
-  positions = [];
-  // }
+  while (x == true) {
+    let roundcount = 1;
+    cardPositions(roundcount);
+    buttonInserter();
+    for (let i = 0; i <= positions.length; i++) {
+      let currentbutton = document.querySelector(`#button-${i}`);
+      document.addEventListener("click", function () {});
+    }
+    positions = [];
+    roundcount++;
+  }
 }
-gamelogic();
+cardPositions(1);
