@@ -19,7 +19,10 @@ function cardPositions(rounds) {
     let randomPositionX = Math.ceil(Math.random() * 50);
     if (i > 0) {
       for (let i = 0; i >= rounds - 1; i++) {
-        if (Math.abs(randomPositionX - positions[i]) <= 2) {
+        if (
+          leftright == positions[i].leftright &&
+          Math.abs(randomPositionX - positions[i].distanceX) <= 2
+        ) {
           randomPositionX = Math.ceil(Math.random() * 50);
         }
       }
@@ -27,7 +30,10 @@ function cardPositions(rounds) {
     let randomPositionY = Math.ceil(Math.random() * 50);
     if (i > 0) {
       for (let i = 0; i >= rounds - 1; i++) {
-        if (Math.abs(randomPositionY - positions[i]) <= 2) {
+        if (
+          topbottom == positions[i].topbottom &&
+          Math.abs(randomPositionY - positions[i].distanceY) <= 2
+        ) {
           randomPositionY = Math.ceil(Math.random() * 50);
         }
       }
@@ -51,6 +57,12 @@ function buttonInserter() {
     );
   });
 }
+function currentbuttonchecker() {
+  let currentbutton = document.querySelector(`#button-${i}`);
+  currentbutton.addEventListener("click", function () {
+    return true;
+  });
+}
 function gamelogic() {
   let x = true;
   while (x == true) {
@@ -58,11 +70,14 @@ function gamelogic() {
     cardPositions(roundcount);
     buttonInserter();
     for (let i = 0; i <= positions.length; i++) {
-      let currentbutton = document.querySelector(`#button-${i}`);
-      document.addEventListener("click", function () {});
+      let currentbutton = currentbuttonchecker();
+      document.addEventListener("click", function () {
+        if (currentbutton == True) {
+        }
+      });
     }
     positions = [];
     roundcount++;
   }
 }
-cardPositions(1);
+cardPositions(5);
