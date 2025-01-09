@@ -5,7 +5,7 @@ function cardPositions(rounds) {
   positions.splice(0, positions.length);
   let topbottom = "";
   let leftright = "";
-  for (let i = 0; i <= rounds; i++) {
+  for (let i = 1; i <= rounds; i++) {
     if (Math.round(Math.random()) == 1) {
       topbottom = "top";
     } else {
@@ -17,7 +17,7 @@ function cardPositions(rounds) {
       leftright = "right";
     }
     let randomPositionX = Math.ceil(Math.random() * 50);
-    if (i > 0) {
+    if (i > 1) {
       for (let i = 0; i >= rounds - 1; i++) {
         if (
           leftright == positions[i].leftright &&
@@ -28,7 +28,7 @@ function cardPositions(rounds) {
       }
     }
     let randomPositionY = Math.ceil(Math.random() * 50);
-    if (i > 0) {
+    if (i > 1) {
       for (let i = 0; i >= rounds - 1; i++) {
         if (
           topbottom == positions[i].topbottom &&
@@ -48,14 +48,16 @@ function cardPositions(rounds) {
   }
 }
 function buttonInserter() {
-  positions.forEach((card) => {
+  for (let i = 0; i <= positions.length - 1; i++) {
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div class="w-[2%] h-[1.5%] absoute ${card.topbottom}-${
-        card.distanceY - 2
-      } ${card.leftright}-${card.distanceX}" id="button-${i}">${i}</div>`
+      `<button class="button w-[2%] h-[1.5%] absoute ${
+        positions[i].topbottom
+      }-[${positions[i].distanceY - 2}%] ${positions[i].leftright}-{${
+        positions[i].distanceX
+      }%]" id="button-${i + 1}">${i + 1}</button>`
     );
-  });
+  }
 }
 function currentbuttonchecker() {
   let currentbutton = document.querySelector(`#button-${i}`);
@@ -80,4 +82,5 @@ function gamelogic() {
     roundcount++;
   }
 }
-cardPositions(5);
+cardPositions(10);
+buttonInserter();
