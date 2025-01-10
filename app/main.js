@@ -1,6 +1,9 @@
-import "../CSS/style.css";
-import { DOMSelectors } from "./DOMSelectors.js";
+import "./CSS/style.css";
+import { DOMSelectors } from "./JS/DOMSelectors.js";
 let positions = [];
+document
+  .querySelector(".test")
+  .insertAdjacentHTML("afterbegin", `<h1 class="bg-red-500">WHAKEN</h1>`);
 function cardPositions(rounds) {
   positions.splice(0, positions.length);
   let topbottom = "";
@@ -21,7 +24,7 @@ function cardPositions(rounds) {
       for (let i = 0; i >= rounds - 1; i++) {
         if (
           leftright == positions[i].leftright &&
-          Math.abs(randomPositionX - positions[i].distanceX) <= 2
+          Math.abs(randomPositionX - positions[i].distanceX) <= 4
         ) {
           randomPositionX = Math.ceil(Math.random() * 50);
         }
@@ -32,7 +35,7 @@ function cardPositions(rounds) {
       for (let i = 0; i >= rounds - 1; i++) {
         while (
           topbottom == positions[i].topbottom &&
-          Math.abs(randomPositionY - positions[i].distanceY) <= 2
+          Math.abs(randomPositionY - positions[i].distanceY) <= 4
         ) {
           randomPositionY = Math.ceil(Math.random() * 50);
         }
@@ -51,7 +54,7 @@ function buttonInserter() {
   for (let i = 0; i <= positions.length - 1; i++) {
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<button class="button w-[2%] h-[1.5%] absolute ${
+      `<button class="button w-[4%] h-[4%] absolute ${
         positions[i].topbottom
       }-[${positions[i].distanceY}%] ${positions[i].leftright}-[${
         positions[i].distanceX
