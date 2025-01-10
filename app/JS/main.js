@@ -30,7 +30,7 @@ function cardPositions(rounds) {
     let randomPositionY = Math.ceil(Math.random() * 50);
     if (i > 1) {
       for (let i = 0; i >= rounds - 1; i++) {
-        if (
+        while (
           topbottom == positions[i].topbottom &&
           Math.abs(randomPositionY - positions[i].distanceY) <= 2
         ) {
@@ -51,9 +51,9 @@ function buttonInserter() {
   for (let i = 0; i <= positions.length - 1; i++) {
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<button class="button w-[2%] h-[1.5%] absoute ${
+      `<button class="button w-[2%] h-[1.5%] absolute ${
         positions[i].topbottom
-      }-[${positions[i].distanceY - 2}%] ${positions[i].leftright}-{${
+      }-[${positions[i].distanceY}%] ${positions[i].leftright}-[${
         positions[i].distanceX
       }%]" id="button-${i + 1}">${i + 1}</button>`
     );
