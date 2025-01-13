@@ -88,11 +88,18 @@ function buttonclickinglogic(buttonNumber) {
       newroundgeneration();
     }
   } else {
-    alert("Wrong Button! Resetting the game:");
-    currentround = 2;
-    currentbtn = 1;
-    roundstart = false;
-    newroundgeneration();
+    const buttons = document.querySelectorAll(".btn");
+    for (let i = 1; i <= buttons.length; i++) {
+      buttons[i - 1].innerHTML = `${i}`;
+      console.log(i);
+    }
+    setTimeout(() => {
+      alert("Wrong Button! Resetting the game:");
+      currentround = 2;
+      currentbtn = 1;
+      roundstart = false;
+      newroundgeneration();
+    }, 100);
   }
 }
 function startGame() {
