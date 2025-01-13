@@ -67,13 +67,10 @@ function newroundgeneration() {
 function buttoncheckers() {
   for (let i = 0; i < positions.length; i++) {
     const button = document.querySelector(`#button-${i + 1}`);
-    console.log(i + 1);
-    button.addEventListener("click", () => handleClick(i + 1));
+    button.addEventListener("click", () => buttonclickinglogic(i + 1));
   }
 }
-function handleClick(buttonNumber) {
-  console.log(buttonNumber);
-  console.log(currentbtn);
+function buttonclickinglogic(buttonNumber) {
   if (buttonNumber === currentbtn) {
     currentbtn++;
     const clickedButton = document.querySelector(`#button-${buttonNumber}`);
