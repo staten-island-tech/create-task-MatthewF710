@@ -50,7 +50,7 @@ function buttonInserter() {
   for (let i = 0; i <= positions.length - 1; i++) {
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<button class="btn"
+      `<button class="btn bg-black text-white"
       style="position: absolute; width: 4%; height: 4%; top: ${
         positions[i].distanceY
       }%; left: ${positions[i].distanceX}%"  id="button-${i + 1}">${
