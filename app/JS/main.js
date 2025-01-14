@@ -4,6 +4,8 @@ let positions = [];
 let currentround = 2;
 let currentbtn = 1;
 let roundstart = false;
+let time = 40;
+let counting = false;
 function numbergenerator() {
   let randomPositionX = Math.ceil(Math.random() * 100);
   let randomPositionY = Math.ceil(Math.random() * 80);
@@ -65,10 +67,41 @@ function newroundgeneration() {
   buttonInserter();
 }
 function buttoncheckers() {
+  countdown();
+  roundstart = true;
   for (let i = 0; i < positions.length; i++) {
     const button = document.querySelector(`#button-${i + 1}`);
     button.addEventListener("click", () => buttonclickinglogic(i + 1));
   }
+}
+
+function countdownlogic() {
+  if (!counting) {
+    return;
+  }
+  if (!roundstart) {
+    return;
+  }
+  DOMSelectors.countdown.innerHTML = `${time}`;
+  time--;
+  if (time >= 0) {
+    setTimeout(countdownlogic, 1000);
+  } else {
+    alert("You ran out of time! Restarting:");
+    currentround = 2;
+    currentbtn = 1;
+    roundstart = false;
+    newroundgeneration();
+  }
+}
+function countdown() {
+  time = 40;
+  if (counting) {
+    return;
+  }
+  roundstart = true;
+  counting = true;
+  countdownlogic();
 }
 function buttonclickinglogic(buttonNumber) {
   if (buttonNumber === currentbtn) {
