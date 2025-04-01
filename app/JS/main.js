@@ -91,6 +91,7 @@ function countdownlogic() {
     currentround = 2;
     currentbtn = 1;
     roundstart = false;
+    counting = false;
     newroundgeneration();
   }
 }
